@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.params=
+comment0.target=PointXY()
+comment1.params=xi\ yi\ pen
+comment1.target=PointXY(double,\ double,\ boolean)
+comment2.params=
+comment2.target=double\ get_x()
+comment3.params=
+comment3.target=double\ get_y()
+comment4.params=
+comment4.target=boolean\ get_pen()
+comment5.params=xi
+comment5.target=void\ set_x(double)
+comment6.params=yi
+comment6.target=void\ set_y(double)
+comment7.params=peni
+comment7.target=void\ set_pen(boolean)
+numComments=8

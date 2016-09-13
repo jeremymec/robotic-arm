@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Drawing()
+comment0.text=\n\ Constructor\ for\ objects\ of\ class\ Drawing\n
+comment1.params=x\ y\ pen
+comment1.target=void\ add_point_to_path(double,\ double,\ boolean)
+comment10.params=i
+comment10.target=PointXY\ get_drawing_point(int)
+comment2.params=
+comment2.target=void\ print_path()
+comment3.params=
+comment3.target=void\ draw()
+comment4.params=
+comment4.target=int\ get_path_size()
+comment5.params=
+comment5.target=void\ path_raise_pen()
+comment6.params=
+comment6.target=PointXY\ get_path_last_point()
+comment7.params=fname
+comment7.target=void\ save_path(java.lang.String)
+comment8.params=fname
+comment8.target=void\ load_path(java.lang.String)
+comment9.params=
+comment9.target=int\ get_drawing_size()
+numComments=11

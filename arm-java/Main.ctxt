@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Main()
+comment0.text=
+comment1.params=action
+comment1.target=void\ doKeys(java.lang.String)
+comment10.params=args
+comment10.target=void\ main(java.lang.String[])
+comment2.params=action\ x\ y
+comment2.target=void\ doMouse(java.lang.String,\ double,\ double)
+comment3.params=
+comment3.target=void\ save_xy()
+comment4.params=
+comment4.target=void\ enter_path_xy()
+comment5.params=
+comment5.target=void\ inverse()
+comment6.params=
+comment6.target=void\ load_xy()
+comment7.params=
+comment7.target=void\ save_ang()
+comment8.params=
+comment8.target=void\ load_ang()
+comment9.params=
+comment9.target=void\ run()
+numComments=11

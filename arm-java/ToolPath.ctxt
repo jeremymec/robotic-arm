@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=
+comment0.target=ToolPath()
+comment0.text=\n\ Constructor\ for\ objects\ of\ class\ ToolPath\n
+comment1.params=drawing\ arm\ fname
+comment1.target=void\ convert_drawing_to_angles(Drawing,\ Arm,\ java.lang.String)
+comment1.text=CONVERT\ (X,Y)\ PATH\ into\ angles*****************
+comment2.params=fname
+comment2.target=void\ save_angles(java.lang.String)
+comment3.params=arm
+comment3.target=void\ convert_angles_to_pwm(Arm)
+comment4.params=
+comment4.target=void\ save_pwm_file()
+numComments=5
