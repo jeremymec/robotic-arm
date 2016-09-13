@@ -16,7 +16,11 @@ import java.awt.*;
 /** <description of class Main>
  */
 public class Main{
-
+    
+    public String RP_IP;
+    public String RP_usr;
+    public String RP_pas;
+    
     private Arm arm;
     private Drawing drawing;
     private ToolPath tool_path;
@@ -35,6 +39,7 @@ public class Main{
         UI.addButton("Load path XY", this::load_xy);
         UI.addButton("Save path Ang", this::save_ang);
         UI.addButton("Load path Ang:Play", this::load_ang);
+        UI.addButton("Transfer File", this::fileTransfer);
                 
        // UI.addButton("Quit", UI::quit);
         UI.setMouseMotionListener(this::doMouse);
@@ -47,6 +52,26 @@ public class Main{
         this.drawing = new Drawing();
         this.run();
         arm.draw();
+    }
+    
+    public boolean fileTransfer(){
+        
+        UI.println("READING LOGIN DETAILS FROM TEXT FILE");
+        File login = new File("login.txt");
+        try{
+            Scanner sc = new Scanner(login);
+        
+            RP_IP = sc.nextLine();
+            RP_usr = sc.nextLine();
+            RP_pas = sc.nextLine();
+        
+        } catch(Exception ex) {
+            UI.println("Error: Problem with File");
+        }
+        
+        UI.println("Attempting to Connect\n with IP: " + RP_IP + "\n and Username: " + RP_usr + "\n and Password: " + RP_pas);
+        
+        return true;
     }
     
     public void doKeys(String action){

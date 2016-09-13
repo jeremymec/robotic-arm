@@ -128,6 +128,7 @@ public class Arm
        //double  ya =.... ;
        // distance between joints
        //double d = ...;
+       int d = 0;
        if (d<2*r){
            valid_state = true;
          // half distance between tool positions
@@ -154,8 +155,10 @@ public class Arm
         valid_state = true;
         double dx1 = xt - xm1; 
         double dy1 = yt - ym1;
+        
+        int d1 = 0;
         // distance between pem and motor
-        double d1 = ...;
+        // PLACEHOLDER double d1 = ...;
         if (d1>2*r){
             //UI.println("Arm 1 - can not reach");
             valid_state = false;
@@ -165,8 +168,8 @@ public class Arm
         double l1 = d1/2;
         double h1 = Math.sqrt(r*r - d1*d1/4);
         // elbows positions
-        //xj1 = ...;
-        //yj1 = ...;
+        xj1 = xm1 + r*Math.cos(theta1);
+        yj1 = ym1 + r*Math.sin(theta1);
 
         ///theta1 = ...;
         if ((theta1>0)||(theta1<-Math.PI)){
@@ -178,7 +181,9 @@ public class Arm
         // theta12 = atan2(yj12 - ym1,xj12-xm1);
         double dx2 = xt - xm2; 
         double dy2 = yt - ym2;
-        double d2 = ...;
+        
+        int d2 = 0;
+        // PLACEHOLDER double d2 = ;
         if (d2>2*r){
            // UI.println("Arm 2 - can not reach");
             valid_state = false;
@@ -189,10 +194,10 @@ public class Arm
         
         double h2 = Math.sqrt(r*r - d2*d2/4);
         // elbows positions
-        xj2 = ...;
-        yj2 = ...;
+        // PLACEHOLDER xj2 = ...;
+        // PLACEHOLDER yj2 = ...;
         // motor angles for both 1st elbow positions
-        theta2 = ...;
+        // PLACEHOLDER theta2 = ...;
         if ((theta2>0)||(theta2<-Math.PI)){
             valid_state = false;
             //UI.println("Ange 2 -invalid");
