@@ -1,13 +1,6 @@
- /**
- * Class represents SCARA robotic arm.
- * 
- * @Arthur Roberts
- * @0.0
- */
- 
-import ecs100.UI;
+import ecs100.*;
+
 import java.awt.Color;
-import java.util.*;
 
 public class Arm {
 
@@ -133,15 +126,16 @@ public class Arm {
 		double d = Math.sqrt(Math.pow((xj1 - xj2), 2) + Math.pow((yj1 - yj2), 2));
 		if (d < 2 * r) {// condition might need changing
 			valid_state = true;
+			
 			// half distance between tool positions
 			double h = Math.sqrt(Math.pow(r, 2) - Math.pow((d / 2), 2));
 			double alpha = Math.atan((yj1 - yj2) / (xj2 - xj1));
+			
 			// tool position
 			double xt = xa + h * Math.cos(Math.PI / 2 - alpha);
 			double yt = ya + h * Math.sin(Math.PI / 2 - alpha);
 			double xt2 = xa - h * Math.cos(alpha - Math.PI / 2);
-			double yt2 = ya - h * Math.sin(alpha - Math.PI / 2);// might need to swap formula around so that alpha to
-																// resembles xt.
+			double yt2 = ya - h * Math.sin(alpha - Math.PI / 2);// might need to swap formula around
 		} else {
 			valid_state = false;
 		}
@@ -197,6 +191,9 @@ public class Arm {
 		double possTheta = Math.atan2(yj11 - ym1, xj11 - xm1);
 		double possTheta2 = Math.atan2(yj12 - ym1, xj12 - xm1);
 
+		if (possTheta2 > Math.PI / 2)// ensures correct joint position is selected
+			possTheta = possTheta2;
+
 		theta1 = Math.min(possTheta, possTheta2);
 
 		if ((theta1 > 0) || (theta1 < -Math.PI)) {
@@ -235,6 +232,9 @@ public class Arm {
 
 		double poss2Theta = Math.atan2(yj21 - ym2, xj21 - xm2);
 		double poss2Theta2 = Math.atan2(yj22 - ym2, xj22 - xm2);
+
+		if (poss2Theta2 > Math.PI / 2)// check for extreme joint
+			poss2Theta2 = poss2Theta;
 
 		theta2 = Math.max(poss2Theta, poss2Theta2);
 		if ((theta2 > 0) || (theta2 < -Math.PI)) {
