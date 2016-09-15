@@ -65,6 +65,15 @@ public class Arm {
 		xj2 = xm2 + r * Math.cos(theta2);
 		yj2 = ym2 + r * Math.sin(theta2);
 
+		// SINGULARITY CHECK, whether the joint distances are close to 2*r length apart
+		// Might need to move this code into inverse kinematics method
+		// 1.985 controls how close the arm can get to being in a singularity position. (2 is max)
+		if (Math.hypot(xj1 - xj2, yj1 - yj2) >= 1.985 * r) {
+			valid_state = false;
+			UI.println("Singularity position");
+			return;
+		}
+
 		// draw motors and write angles
 		int mr = 20;
 		UI.setLineWidth(5);
@@ -126,11 +135,11 @@ public class Arm {
 		double d = Math.sqrt(Math.pow((xj1 - xj2), 2) + Math.pow((yj1 - yj2), 2));
 		if (d < 2 * r) {// condition might need changing
 			valid_state = true;
-			
+
 			// half distance between tool positions
 			double h = Math.sqrt(Math.pow(r, 2) - Math.pow((d / 2), 2));
 			double alpha = Math.atan((yj1 - yj2) / (xj2 - xj1));
-			
+
 			// tool position
 			double xt = xa + h * Math.cos(Math.PI / 2 - alpha);
 			double yt = ya + h * Math.sin(Math.PI / 2 - alpha);
@@ -242,6 +251,7 @@ public class Arm {
 			UI.println("Angel 2 -invalid");
 			return;
 		}
+
 	}
 
 	// returns angle of motor 1
