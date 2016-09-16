@@ -203,7 +203,7 @@ public class Arm {
 		if (possTheta2 > Math.PI / 2)// ensures correct joint position is selected
 			possTheta = possTheta2;
 
-		theta1 = Math.min(possTheta, possTheta2);
+		theta1 = Math.min(possTheta, possTheta2);//always chooses the outer joint position.
 
 		if ((theta1 > 0) || (theta1 < -Math.PI)) {
 			valid_state = false;
@@ -233,19 +233,19 @@ public class Arm {
 
 		double alpha2 = Math.atan((yt - ym2) / (xt - xm2));// result of aTan the gradient between pen and motor
 
-		double xj21 = midX2 - h2 * Math.cos(Math.PI / 2 + alpha2);// possible positions of joint 1
-		double yj21 = midY2 - h2 * Math.sin(Math.PI / 2 + alpha2);// CHANGE swap 90 with alpha
+		double xj21 = midX2 - h2 * Math.cos(Math.PI / 2 + alpha2);//  first possible x position of joint 2.
+		double yj21 = midY2 - h2 * Math.sin(Math.PI / 2 + alpha2);
 
-		double xj22 = midX2 + h2 * Math.cos(Math.PI / 2 + alpha2);
+		double xj22 = midX2 + h2 * Math.cos(Math.PI / 2 + alpha2);//second possible position of joint 2.
 		double yj22 = midY2 + h2 * Math.sin(Math.PI / 2 + alpha2);
 
 		double poss2Theta = Math.atan2(yj21 - ym2, xj21 - xm2);
 		double poss2Theta2 = Math.atan2(yj22 - ym2, xj22 - xm2);
 
-		if (poss2Theta2 > Math.PI / 2)// check for extreme joint
+		if (poss2Theta2 > Math.PI / 2)// checks that joint is correctly selected in extreme cases. ~-175 degrees
 			poss2Theta2 = poss2Theta;
 
-		theta2 = Math.max(poss2Theta, poss2Theta2);
+		theta2 = Math.max(poss2Theta, poss2Theta2);//always chooses the outer joint position.
 		if ((theta2 > 0) || (theta2 < -Math.PI)) {
 			valid_state = false;
 			UI.println("Angel 2 -invalid");
