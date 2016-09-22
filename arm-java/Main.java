@@ -49,18 +49,10 @@ public class Main{
     }
 
     public void doSendFile(){
-        try{
-            File f = new File (UIFileChooser.save());
-            PrintStream p = new PrintStream(f);
-            for (String s : toSendText){
-                p.println(s);
-            }
-
-            Runtime.getRuntime().exec("scp PWMToSend pi@10.140.141.22:/home/pi");//sends the text file "PWMToSend" to the pi. I think can only be executed on lab computers MIGHT need to add passwords
-        }
-        catch(IOException e){
-            UI.println("Something went wrong "+e);
-        }
+        tool_path = new ToolPath();
+		tool_path.convert_drawing_to_angles(drawing, arm, "does nothing");
+		tool_path.convert_angles_to_pwm(arm);
+		tool_path.save_pwm_file();
     }
 
     public void doKeys(String action){
